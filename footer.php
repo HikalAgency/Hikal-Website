@@ -1,8 +1,11 @@
 <?php
+$ip = $_SERVER['REMOTE_ADDR'];
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://';
+$fullUrl = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 ?>
-<footer>
+<footer class="w-100" style="background: linear-gradient(to bottom, transparent, rgba(196, 174, 122, 0.25))">
     <div
-        class="container container-fluid d-flex flex-column align-items-center justify-content-center gap-4 text-center my-5 pt-5">
+        class="container container-fluid d-flex flex-column align-items-center justify-content-center gap-4 text-center mt-5 py-5">
         <!-- FORM -->
         <div>
             <h3 class="gold-grad-anim mb-2">Get in Touch</h3>
@@ -35,44 +38,90 @@
                         <label class="px-1 primary-text text-start">
                             Message
                         </label>
-                        <textarea name="message" id="message" rows="4" required></textarea> <!-- Multiline field -->
-                    </div>
-                    <div class="col-12 p-4 d-flex align-items-center justify-content-center">
+                        <textarea name="message" id="message" rows="9" required></textarea>
                         <button type="submit" id="submit" class="ui-btn">Submit</button>
                     </div>
                     <small id="fill-note"></small>
                 </div>
             </form>
-            <div id="thank_you" class="p-4" style="display: none;">Thank you for your submission! The form will reset in
-                10 minutes.</div>
-            <div id="error" class="p-4 text-danger" style="display: none;">Something went wrong. Please reload the page
-                to try again.</div>
+            <div id="thank_you" class="p-4" style="display: none;">
+                <div class="blur-con">
+                    <div class="contact-card p-5 d-flex flex-column gap-3 align-items-center justify-content-center">
+                        <i class="fa-solid fa-check gold-grad" style="font-size: 70px;"></i>
+                        <h4 class="text-white">Thanks for reaching out to <span class="gold-grad">HIKAL</span>! We’ve
+                            got your enquiry and will be in touch soon.</h4>
+                    </div>
+                </div>
+            </div>
+            <div id="error" class="p-4 text-danger" style="display: none;">
+                <div class="blur-con">
+                    <div class="contact-card p-5 d-flex flex-column gap-3 align-items-center justify-content-center">
+                        <i class="fa-solid fa-xmark" style="font-size: 70px;"></i>
+                        <h4 class="text-white">
+                            Something went wrong. Please reload the page and try again.
+                        </h4>
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="d-flex gap-5 flex-wrap align-items-center justify-content-center mt-5">
+            <a href="<?php if ($page == "home") {
+                echo '#header';
+            } else {
+                echo $base;
+            } ?>">
+                Home</a>
+            <a href="<?php if ($page === "home") {
+                echo '#companies';
+            } else {
+                echo $base . '/#companies';
+            } ?>">
+                Companies
+            </a>
+            <a href="<?php if ($page === "home") {
+                echo '#services';
+            } else {
+                echo $base . '/#services';
+            } ?>">
+                Services
+            </a>
+            <a href="<?php if ($page === "home") {
+                echo '#about';
+            } else {
+                echo $base . '/#about';
+            } ?>">
+                About
+            </a>
+            <a href="<?php echo $base . '/careers'; ?>">Careers</a>
+        </div>
+        <div class="w-100 h-1" style="background: rgba(169, 163, 194, 0.24); height: 1px;"></div>
+
         <!-- LOGO -->
-        <img src="assets/images/logo/HikalGroup.png" alt="Hikal Group" style="width: 300px;" />
+        <!-- <img src="assets/images/logo/HikalGroup.png" alt="Hikal Group" style="width: 300px;" /> -->
         <!-- SOCIAL LINKS -->
         <div class="social-links d-flex gap-4 align-items-center justify-content-center">
             <a href="https://www.linkedin.com/company/hikal" class="social-link">
-                <i class="fa-brands fa-linkedin"></i>
+                <span class="iconify" data-icon="iconoir:linkedin"></span>
             </a>
             <a href="https://www.instagram.com/hikalagency/" class="social-link">
-                <i class="fa-brands fa-instagram"></i>
+                <span class="iconify" data-icon="iconoir:instagram"></span>
             </a>
             <a href="https://www.facebook.com/hikalagency/" class="social-link">
-                <i class="fa-brands fa-facebook"></i>
+                <span class="iconify" data-icon="iconoir:facebook"></span>
             </a>
             <a href="https://www.tiktok.com/@hikalagency" class="social-link">
-                <i class="fa-brands fa-tiktok"></i>
+                <span class="iconify" data-icon="iconoir:tiktok"></span>
             </a>
             <a href="https://www.youtube.com/channel/UCR0EzeM3p9GRGp6bMU1D-jA" class="social-link">
-                <i class="fa-brands fa-youtube"></i>
+                <span class="iconify" data-icon="iconoir:youtube"></span>
             </a>
         </div>
+        <div class="w-100 h-1" style="background: rgba(169, 163, 194, 0.24); height: 1px;"></div>
         <!-- COPYRIGHT -->
         <div class="copyright">
             <span class="primary-text">Hikal</span>
             © <?php echo date("Y"); ?>. All Rights Reserved.
-            <span class="primary-text">Privacy Policy</span>
+            <a href="privacypolicy" class="primary-text">Privacy Policy</a>
         </div>
     </div>
 </footer>
@@ -177,9 +226,9 @@
                 email: emailField.value,
                 country: countryField.value,
                 message: messageField.value,
-                ip: "<?php echo $ip; ?>", // Assuming these PHP vars are defined
-                device: "<?php echo $device; ?>",
-                url: "<?php echo $url; ?>"
+                ip: "<?php echo $ip; ?>",
+                device: navigator.userAgent,
+                url: "<?php echo $fullUrl; ?>"
             };
 
             console.log('Form Data:', formData);

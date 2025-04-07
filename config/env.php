@@ -5,6 +5,7 @@ function loadEnv($path)
 {
     if (!file_exists($path)) {
         $GLOBALS['env'] = [
+            'BASE_URL' => 'https://hikal.ae',
             'SMTP_HOST' => 'mail.hikal.ae',
             'SMTP_PORT' => '465',
             'SMTP_USERNAME' => 'enquiry@hikal.ae',

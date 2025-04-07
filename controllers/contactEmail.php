@@ -12,7 +12,7 @@ $smtpPassword = $GLOBALS['env']['SMTP_PASSWORD'] ?? 'Enquiry@Hikal1610';
 $smtpEncryption = $GLOBALS['env']['SMTP_ENCRYPTION'] ?? 'ssl';
 $fromEmail = $GLOBALS['env']['FROM_EMAIL'] ?? 'enquiry@hikal.ae';
 $fromName = $GLOBALS['env']['FROM_NAME'] ?? 'Hikal Enquiry';
-$mailTo = $GLOBALS['env']['MAIL_TO'] ?? 'muskan@hikal.ae';
+$mailTo = $GLOBALS['env']['MAIL_TO'] ?? 'muskan@hikalagency.ae';
 
 $name = htmlspecialchars(trim($_POST['name'] ?? ''));
 $phone = htmlspecialchars(trim($_POST['phone'] ?? ''));

@@ -68,7 +68,7 @@
             background-image:
                 linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, rgba(0, 0, 0, 0.3) 100%),
                 var(--card-image);
-            height: 10vh;
+            height: 15vh;
         }
 
         .expand-card .expanded-content {
