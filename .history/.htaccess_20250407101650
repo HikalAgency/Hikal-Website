@@ -1,0 +1,13 @@
+RewriteEngine On
+
+<Files ".env">
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+# Rewrite extension-less URLs to .php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+ErrorDocument 404 /404.php

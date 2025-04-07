@@ -1,0 +1,7 @@
+echo @'
+{
+    "require": {
+        "phpmailer/phpmailer": "^6.9"
+    }
+}
+'@ > composer.json

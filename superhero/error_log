@@ -1,0 +1,10 @@
+[26-Feb-2025 23:15:24 America/Boise] PHP Fatal error:  Uncaught Error: Value of type null is not callable in /home2/puxqglmy/public_html/website_8886078d/superhero/recordings.php:237
+Stack trace:
+#0 {main}
+  thrown in /home2/puxqglmy/public_html/website_8886078d/superhero/recordings.php on line 237
+[26-Feb-2025 23:16:41 America/Boise] PHP Parse error:  Unclosed '{' on line 188 does not match ')' in /home2/puxqglmy/public_html/website_8886078d/superhero/recordings.php on line 238
+[25-Mar-2025 02:32:00 America/Boise] PHP Fatal error:  Uncaught TypeError: json_decode(): Argument #1 ($json) must be of type string, array given in /home2/puxqglmy/public_html/website_8886078d/superhero/recordings.php:40
+Stack trace:
+#0 /home2/puxqglmy/public_html/website_8886078d/superhero/recordings.php(40): json_decode(Array)
+#1 {main}
+  thrown in /home2/puxqglmy/public_html/website_8886078d/superhero/recordings.php on line 40

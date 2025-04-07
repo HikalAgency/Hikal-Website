@@ -1,0 +1,15 @@
+# Enable rewrite engine
+RewriteEngine On
+
+# Protect .env file (Apache 2.4+)
+<Files ".env">
+    Require all denied
+</Files>
+
+# Rewrite extension-less URLs to .php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+# Custom 404 error page
+ErrorDocument 404 /404.php
