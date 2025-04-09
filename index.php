@@ -5,7 +5,7 @@ include("data/services.php");
 $page = "home";
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
