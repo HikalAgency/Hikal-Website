@@ -1527,4 +1527,27 @@ audio::-webkit-media-controls-panel {
   .companies-section {
     gap: 20px;
   }
+  html,
+  body {
+    height: auto !important;
+    min-height: 100% !important; /* Allow full content height */
+  }
+
+  .section {
+    min-height: calc(var(--vh, 1vh) * 100); /* Dynamic viewport height */
+  }
+
+  #companies {
+    min-height: calc(var(--vh, 1vh) * 100);
+  }
+
+  .flow-container {
+    height: calc(var(--vh, 1vh) * 100) !important; /* Match section height */
+    width: 700%; /* 7 panels */
+  }
+
+  .panel {
+    height: calc(var(--vh, 1vh) * 100) !important;
+    width: 100vw;
+  }
 }

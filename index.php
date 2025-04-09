@@ -343,7 +343,7 @@ $page = "home";
             }, 100);
         });
     </script> -->
-    <script>
+    <!-- <script>
         document.addEventListener("DOMContentLoaded", () => {
             const sections = document.querySelectorAll(".section");
 
@@ -404,6 +404,89 @@ $page = "home";
             setTimeout(() => {
                 isInitialLoad = false;
             }, 100);
+        });
+    </script> -->
+
+    <!-- MOBILE VIEWPORT FIX -->
+    <script>
+        // Set custom --vh unit for mobile
+        function setVH() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        setVH();
+        window.addEventListener('resize', setVH);
+    </script>
+
+    <!-- SECTION VERTICAL SCROLL -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = document.querySelectorAll(".section");
+
+            if (sections.length === 0) return;
+
+            let isAutoScrolling = false;
+            let isInitialLoad = true;
+            let lastScrollTop = window.scrollY || 0;
+            let previousScrollTop = lastScrollTop;
+
+            window.addEventListener("scroll", () => {
+                const currentScrollTop = window.scrollY || 0;
+                previousScrollTop = lastScrollTop;
+                lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+            });
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    if (isInitialLoad || isAutoScrolling) return;
+
+                    const currentScrollTop = window.scrollY || 0;
+                    const scrollingDown = currentScrollTop > previousScrollTop;
+
+                    entries.forEach((entry) => {
+                        const currentSection = entry.target;
+                        const nextSection = currentSection.nextElementSibling;
+
+                        if (currentSection.id === "companies") return;
+
+                        if (
+                            scrollingDown &&
+                            (!entry.isIntersecting || entry.intersectionRatio < 0.5) &&
+                            nextSection &&
+                            nextSection.classList.contains("section")
+                        ) {
+                            isAutoScrolling = true;
+                            nextSection.scrollIntoView({ behavior: "smooth", block: "start" });
+                            setTimeout(() => {
+                                isAutoScrolling = false;
+                            }, 1000);
+                        }
+                    });
+                },
+                {
+                    root: null,
+                    threshold: 0.5,
+                    rootMargin: "0px"
+                }
+            );
+
+            sections.forEach((section) => {
+                observer.observe(section);
+            });
+
+            setTimeout(() => {
+                isInitialLoad = false;
+            }, 100);
+        });
+    </script>
+
+    <!-- SCROLLTRIGGER REFRESH -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Refresh ScrollTrigger on resize to handle mobile viewport changes
+            window.addEventListener("resize", () => {
+                ScrollTrigger.refresh();
+            });
         });
     </script>
 
