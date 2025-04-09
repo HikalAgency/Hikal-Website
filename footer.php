@@ -6,64 +6,70 @@ $fullUrl = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 <footer class="w-100" style="background: linear-gradient(to bottom, transparent, rgba(196, 174, 122, 0.25))">
     <div
         class="container container-fluid d-flex flex-column align-items-center justify-content-center gap-4 text-center mt-5 py-5">
-        <!-- FORM -->
-        <div>
-            <h3 class="gold-grad-anim mb-2">Get in Touch</h3>
-            <div class="divider"></div>
-            <p class="mb-5">
-                We’d love to hear from you! Fill out the form below, and our team will reach out shortly.
-            </p>
-            <form id="contactForm">
-                <div class="row">
-                    <div class="col-12 col-md-6 p-4 d-flex flex-column gap-2">
-                        <label class="px-1 primary-text text-start">
-                            Name
-                        </label>
-                        <input type="text" name="name" id="name" required />
+        <?php
+        if ($page === "home") {
+            ?>
+            <!-- FORM -->
+            <div>
+                <h3 class="gold-grad-anim mb-2">Get in Touch</h3>
+                <div class="divider"></div>
+                <p class="mb-5">
+                    We’d love to hear from you! Fill out the form below, and our team will reach out shortly.
+                </p>
+                <form id="contactForm">
+                    <div class="row">
+                        <div class="col-12 col-md-6 p-4 d-flex flex-column gap-2">
+                            <label class="px-1 primary-text text-start">
+                                Name
+                            </label>
+                            <input type="text" name="name" id="name" required />
 
-                        <label class="px-1 primary-text text-start">
-                            Phone
-                        </label>
-                        <input type="tel" id="phone" name="phone" value="" required />
-                        <input type="text" id="country" name="country" value="" class="d-none" readonly />
-                        <small id="contactError"></small>
+                            <label class="px-1 primary-text text-start">
+                                Phone
+                            </label>
+                            <input type="tel" id="phone" name="phone" value="" required />
+                            <input type="text" id="country" name="country" value="" class="d-none" readonly />
+                            <small id="contactError"></small>
 
-                        <label class="px-1 primary-text text-start">
-                            Email
-                        </label>
-                        <input type="email" id="email" name="email" value="" placeholder="Your email" required />
-                        <small id="emailError"></small>
+                            <label class="px-1 primary-text text-start">
+                                Email
+                            </label>
+                            <input type="email" id="email" name="email" value="" placeholder="Your email" required />
+                            <small id="emailError"></small>
+                        </div>
+                        <div class="col-12 col-md-6 p-4 d-flex flex-column gap-2">
+                            <label class="px-1 primary-text text-start">
+                                Message
+                            </label>
+                            <textarea name="message" id="message" rows="9" required></textarea>
+                            <button type="submit" id="submit" class="ui-btn">Submit</button>
+                        </div>
+                        <small id="fill-note"></small>
                     </div>
-                    <div class="col-12 col-md-6 p-4 d-flex flex-column gap-2">
-                        <label class="px-1 primary-text text-start">
-                            Message
-                        </label>
-                        <textarea name="message" id="message" rows="9" required></textarea>
-                        <button type="submit" id="submit" class="ui-btn">Submit</button>
+                </form>
+                <div id="thank_you" class="p-4" style="display: none;">
+                    <div class="blur-con">
+                        <div class="contact-card p-5 d-flex flex-column gap-3 align-items-center justify-content-center">
+                            <i class="fa-solid fa-check gold-grad" style="font-size: 70px;"></i>
+                            <h4 class="text-white">Thanks for reaching out to <span class="gold-grad">HIKAL</span>! We’ve
+                                got your enquiry and will be in touch soon.</h4>
+                        </div>
                     </div>
-                    <small id="fill-note"></small>
                 </div>
-            </form>
-            <div id="thank_you" class="p-4" style="display: none;">
-                <div class="blur-con">
-                    <div class="contact-card p-5 d-flex flex-column gap-3 align-items-center justify-content-center">
-                        <i class="fa-solid fa-check gold-grad" style="font-size: 70px;"></i>
-                        <h4 class="text-white">Thanks for reaching out to <span class="gold-grad">HIKAL</span>! We’ve
-                            got your enquiry and will be in touch soon.</h4>
+                <div id="error" class="p-4 text-danger" style="display: none;">
+                    <div class="blur-con">
+                        <div class="contact-card p-5 d-flex flex-column gap-3 align-items-center justify-content-center">
+                            <i class="fa-solid fa-xmark" style="font-size: 70px;"></i>
+                            <h4 class="text-white">
+                                Something went wrong. Please reload the page and try again.
+                            </h4>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div id="error" class="p-4 text-danger" style="display: none;">
-                <div class="blur-con">
-                    <div class="contact-card p-5 d-flex flex-column gap-3 align-items-center justify-content-center">
-                        <i class="fa-solid fa-xmark" style="font-size: 70px;"></i>
-                        <h4 class="text-white">
-                            Something went wrong. Please reload the page and try again.
-                        </h4>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php
+        }
+        ?>
         <div class="d-flex gap-5 flex-wrap align-items-center justify-content-center mt-5">
             <a href="<?php if ($page == "home") {
                 echo '#header';

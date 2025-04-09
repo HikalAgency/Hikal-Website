@@ -171,7 +171,7 @@ $cards = [
                 },
                 onEnter: () => console.log("ScrollTrigger entered"),
                 onLeave: () => console.log("ScrollTrigger left"),
-                markers: false // Remove in production
+                markers: true // Remove in production
             }
         });
 

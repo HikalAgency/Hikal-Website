@@ -56,7 +56,12 @@ $page = "home";
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script> -->
 
     <!-- GSAP -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"
+        integrity="sha512-f6bQMg6nkSRw/xfHw5BCbISe/dJjXrVGfz9BSDwhZtiErHwk7ifbmBEtF9vFW8UNIQPhV2uEFVyI/UHob9r7Cw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"
+        integrity="sha512-AcqPGqrrAEtEwe+ADO5R8RbdFi7tuU7b/A2cJJH0Im0D18NRk5p5s4B3E5PMuO81KFw0ClN7J5SHVUJz7KOb0A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- CUSTOM CSS -->
     <link rel="stylesheet" href="assets/css/style2.css">
@@ -87,149 +92,96 @@ $page = "home";
     <canvas id="particleCanvas"></canvas>
 
     <!-- SCROLLABLE CONTENT -->
-    <div class="body-content">
-        <!-- HEADER -->
-        <?php include_once("components/header.php"); ?>
-        <!-- HOME -->
-        <div class="section section1">
-            <div class="hikal-intro">
-                <p>Introducing</p>
-            </div>
-            <div class="hikal">
-                <div class="hikalText">
-                    <h2>HIKAL</h2>
-                    <h2>HIKAL</h2>
-                </div>
-            </div>
-            <p class="hikal-group">GROUP</p>
-            <img class="monument" src="assets/images/graphics/monument.png" alt="Hikal Group">
+    <!-- <div class="body-content"> -->
+    <!-- HEADER -->
+    <?php include_once("components/header.php"); ?>
+    <!-- HOME -->
+    <div class="section section1">
+        <div class="hikal-intro">
+            <p>Introducing</p>
         </div>
-        <!-- INTRO -->
-        <div class="section section2 my-5 py-5">
-            <div class="container container-fluid ">
-                <h3 class="gold-grad">
-                    Redefining Excellence Across Borders
-                </h3>
-                <div class="divider"></div>
-                <p>
-                    Welcome to Hikal Group, where innovation meets integrity to deliver exceptional services
-                    across the Middle East and beyond. Our diversified portfolio spans real estate, marketing
-                    management,
-                    and
-                    technology solutions, each division driven by a commitment to excellence and client satisfaction.
-                </p>
+        <div class="hikal">
+            <div class="hikalText">
+                <h2>HIKAL</h2>
+                <h2>HIKAL</h2>
             </div>
         </div>
-        <!-- COMPANIES -->
-        <div id="companies" class="section section3 my-5 py-5">
-            <div class="container-fluid companies-header">
-                <h3 class="gold-grad-anim mb-2">Our Companies</h3>
-                <h6 class="text-white">INNOVATING ACROSS DIVERSE INDUSTRIES</h6>
-                <div class="divider"></div>
-            </div>
-            <?php include_once("components/companies-list.php"); ?>
-        </div>
-        <!-- SERVICES -->
-        <div id="services" class="section section4 my-5 py-5">
-            <div class="container container-fluid text-center">
-                <h3 class="gold-grad-anim mb-2">Our Services</h3>
-                <h6 class="text-white">COMPREHENSIVE SOLUTIONS FOR EVERY NEED</h6>
-                <div class="mb-5"></div>
-                <?php include_once("components/services-list.php"); ?>
-                <div id="sub-services">
-                </div>
-            </div>
-        </div>
-        <!-- ABOUT -->
-        <div id="about" class="section section5 my-5 py-5">
-            <div class="container container-fluid text-center">
-                <h3 class="gold-grad-anim mb-2">About Us</h3>
-                <div class="divider"></div>
-                <p>
-                    Welcome to Hikal Group, where we are dedicated to redefining excellence across a broad spectrum of
-                    industries. From real estate consultation and marketing strategies to custom software development
-                    and
-                    professional cleaning services, we provide comprehensive solutions tailored to your needs. Our
-                    commitment to
-                    innovation, quality, and customer satisfaction sets us apart, driving us to deliver exceptional
-                    results
-                    in
-                    every project we undertake.
-                </p>
-                <p>
-                    At Hikal Group, we believe in the power of collaboration and the importance of adapting to the
-                    ever-changing
-                    market landscape. Our team of experts brings a wealth of experience and a passion for excellence,
-                    ensuring
-                    that we consistently exceed our clients' expectations.
-                </p>
-                <p>
-                    Join us on our journey as we continue to innovate and excel across diverse industries, making a
-                    lasting
-                    impact on the communities we serve.
-                </p>
-            </div>
-        </div>
-        <!-- CONTACT -->
-        <div id="contact" class="section section6 my-5 py-5">
-            <div class="container container-fluid text-center">
-                <h3 class="gold-grad-anim mb-2">Contact Us</h3>
-                <h6 class="text-white">YOUR CONNECTION TO EXCELLENCE</h6>
-                <div class="divider"></div>
-                <p class="mb-5">
-                    <!-- We’d love to hear from you! Whether you have questions, need more information about our services, or
-                    want to discuss a potential project, our team is here to help. -->
-                    Smart Solutions, Real Growth Hikal Group transforms companies with innovative real estate,
-                    marketing, and technology solutions. Growing up or growing from scratch, we've got you covered.
-                    Let's create something incredible contact us now
-                </p>
-                <div class="p-4 text-start mb-5">
-                    <div
-                        class="d-flex flex-column gap-2 gap-md-5 flex-md-row align-items-center justify-content-center">
-                        <a href="mailto:info+website@hikal.ae" class="text-white">
-                            <i class="fa-solid fa-envelope"></i>
-                            <span class="mx-2">info@hikal.ae</span>
-                        </a>
-                        <a href="tel:+97142621133" class="text-white">
-                            <i class="fa-solid fa-phone"></i>
-                            <span class="mx-2">+971 4 262 1133</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-md-4 p-2 px-5 px-md-2">
-                        <div class="blur-con h-100">
-                            <div class="contact-card p-4 h-100">
-                                <p class="gold-grad"><b>UNITED ARAB EMIRATES</b></p>
-                                <p><small>1610, SIT Tower, Dubai Silicon Oasis, Dubai, UAE</small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 p-2 px-5 px-md-2">
-                        <div class="blur-con h-100">
-                            <div class="contact-card p-4 h-100">
-                                <p class="gold-grad"><b>EGYPT</b></p>
-                                <p><small>51, Skies Plaza Mall, 90th Street, 5th Settlement, New Cairo, Egypt</small>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 p-2 px-5 px-md-2">
-                        <div class="blur-con h-100">
-                            <div class="contact-card p-4 h-100">
-                                <p class="gold-grad"><b>PAKISTAN</b></p>
-                                <p><small>Islamabad, Pakistan</small></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section section7">
-            <?php include_once('footer.php') ?>
+        <p class="hikal-group">GROUP</p>
+        <img class="monument" src="assets/images/graphics/monument.png" alt="Hikal Group">
+    </div>
+    <!-- INTRO -->
+    <div class="section section2 my-5 py-5">
+        <div class="container container-fluid ">
+            <h3 class="gold-grad">
+                Redefining Excellence Across Borders
+            </h3>
+            <div class="divider"></div>
+            <p>
+                Welcome to Hikal Group, where innovation meets integrity to deliver exceptional services
+                across the Middle East and beyond. Our diversified portfolio spans real estate, marketing
+                management,
+                and
+                technology solutions, each division driven by a commitment to excellence and client satisfaction.
+            </p>
         </div>
     </div>
+    <!-- COMPANIES -->
+    <div id="companies" class="section section3 justify-content-start align-items-start">
+        <?php
+        include_once("components/companies-list.php");
+        ?>
+
+    </div>
+    <!-- SERVICES -->
+    <div id="services" class="section section4 my-5 py-5">
+        <div class="container container-fluid text-center">
+            <h3 class="gold-grad-anim mb-2">Our Services</h3>
+            <h6 class="text-white">COMPREHENSIVE SOLUTIONS FOR EVERY NEED</h6>
+            <div class="mb-5"></div>
+            <?php include_once("components/services-list.php"); ?>
+            <div id="sub-services">
+            </div>
+        </div>
+    </div>
+    <!-- ABOUT -->
+    <div id="about" class="section section5 my-5 py-5">
+        <div class="container container-fluid text-center">
+            <h3 class="gold-grad-anim mb-2">About Us</h3>
+            <div class="divider"></div>
+            <p>
+                Welcome to Hikal Group, where we are dedicated to redefining excellence across a broad spectrum of
+                industries. From real estate consultation and marketing strategies to custom software development
+                and
+                professional cleaning services, we provide comprehensive solutions tailored to your needs. Our
+                commitment to
+                innovation, quality, and customer satisfaction sets us apart, driving us to deliver exceptional
+                results
+                in
+                every project we undertake.
+            </p>
+            <p>
+                At Hikal Group, we believe in the power of collaboration and the importance of adapting to the
+                ever-changing
+                market landscape. Our team of experts brings a wealth of experience and a passion for excellence,
+                ensuring
+                that we consistently exceed our clients' expectations.
+            </p>
+            <p>
+                Join us on our journey as we continue to innovate and excel across diverse industries, making a
+                lasting
+                impact on the communities we serve.
+            </p>
+        </div>
+    </div>
+    <!-- CONTACT -->
+    <div id="contact" class="section section6 my-5 py-5">
+        <?php include_once('components/contact.php') ?>
+    </div>
+
+    <div class="section section7">
+        <?php include_once('footer.php') ?>
+    </div>
+    <!-- </div> -->
 
 
     <!-- PARTICLE CANVAS -->
@@ -321,86 +273,7 @@ $page = "home";
     </script>
 
     <!-- SECTION SCROLL -->
-    <script>
-        // document.addEventListener("DOMContentLoaded", () => {
-        //     const scrollContainer = document.querySelector(".body-content");
-        //     const sections = scrollContainer.querySelectorAll(".section");
-
-        //     if (sections.length === 0) {
-        //         console.error("No sections with class 'section' found!");
-        //         return;
-        //     }
-
-        //     let isAutoScrolling = false;
-        //     let isInitialLoad = true;
-        //     let lastScrollTop = scrollContainer.scrollTop || 0;
-        //     let previousScrollTop = lastScrollTop;
-
-        //     // Scroll listener on the container
-        //     scrollContainer.addEventListener("scroll", () => {
-        //         const currentScrollTop = scrollContainer.scrollTop || 0;
-        //         previousScrollTop = lastScrollTop;
-        //         lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
-        //     });
-
-        //     const observer = new IntersectionObserver(
-        //         (entries) => {
-        //             if (isInitialLoad || isAutoScrolling) {
-        //                 return;
-        //             }
-
-        //             const currentScrollTop = scrollContainer.scrollTop || 0;
-        //             const scrollingDown = currentScrollTop > previousScrollTop;
-
-        //             entries.forEach((entry) => {
-        //                 const currentSection = entry.target;
-        //                 const nextSection = currentSection.nextElementSibling;
-
-        //                 // Check if the current section is #companies and a card is expanded
-        //                 const isCompaniesSection = currentSection.id === "companies";
-        //                 const isCompanyCardExpanded = document.querySelector(".expand-card.active") !== null;
-
-        //                 if (
-        //                     isCompaniesSection &&
-        //                     isCompanyCardExpanded &&
-        //                     scrollingDown &&
-        //                     (!entry.isIntersecting || entry.intersectionRatio < 0.5) &&
-        //                     nextSection &&
-        //                     nextSection.classList.contains("section")
-        //                 ) {
-        //                     return; // Skip auto-scroll only for #services when #companies has an expanded card
-        //                 }
-
-        //                 if (
-        //                     scrollingDown &&
-        //                     (!entry.isIntersecting || entry.intersectionRatio < 0.5) &&
-        //                     nextSection &&
-        //                     nextSection.classList.contains("section")
-        //                 ) {
-        //                     isAutoScrolling = true;
-        //                     nextSection.scrollIntoView({ behavior: "smooth", block: "start" });
-
-        //                     setTimeout(() => {
-        //                         isAutoScrolling = false;
-        //                     }, 1000);
-        //                 }
-        //             });
-        //         },
-        //         {
-        //             root: scrollContainer,
-        //             threshold: 0.5,
-        //             rootMargin: "0px"
-        //         }
-        //     );
-
-        //     sections.forEach((section) => {
-        //         observer.observe(section);
-        //     });
-
-        //     setTimeout(() => {
-        //         isInitialLoad = false;
-        //     }, 100);
-        // });
+    <!-- <script>
         document.addEventListener("DOMContentLoaded", () => {
             const scrollContainer = document.querySelector(".body-content");
             const sections = scrollContainer.querySelectorAll(".section");
@@ -469,11 +342,70 @@ $page = "home";
                 isInitialLoad = false;
             }, 100);
         });
+    </script> -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = document.querySelectorAll(".section");
+
+            if (sections.length === 0) return;
+
+            let isAutoScrolling = false;
+            let isInitialLoad = true;
+            let lastScrollTop = window.scrollY || 0;
+            let previousScrollTop = lastScrollTop;
+
+            // Scroll listener on the window (body)
+            window.addEventListener("scroll", () => {
+                const currentScrollTop = window.scrollY || 0;
+                previousScrollTop = lastScrollTop;
+                lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+            });
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    if (isInitialLoad || isAutoScrolling) return;
+
+                    const currentScrollTop = window.scrollY || 0;
+                    const scrollingDown = currentScrollTop > previousScrollTop;
+
+                    entries.forEach((entry) => {
+                        const currentSection = entry.target;
+                        const nextSection = currentSection.nextElementSibling;
+
+                        // Skip auto-scroll if the current section is #companies
+                        if (currentSection.id === "companies") return;
+
+                        if (
+                            scrollingDown &&
+                            (!entry.isIntersecting || entry.intersectionRatio < 0.5) &&
+                            nextSection &&
+                            nextSection.classList.contains("section")
+                        ) {
+                            isAutoScrolling = true;
+                            nextSection.scrollIntoView({ behavior: "smooth", block: "start" });
+
+                            setTimeout(() => {
+                                isAutoScrolling = false;
+                            }, 1000);
+                        }
+                    });
+                },
+                {
+                    root: null, // Use viewport (body) as root
+                    threshold: 0.5,
+                    rootMargin: "0px"
+                }
+            );
+
+            sections.forEach((section) => {
+                observer.observe(section);
+            });
+
+            setTimeout(() => {
+                isInitialLoad = false;
+            }, 100);
+        });
     </script>
-
-
-
-
 
     <!-- SERVICES -->
     <script>

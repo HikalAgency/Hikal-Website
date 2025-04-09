@@ -34,6 +34,11 @@ $url = $protocol . $host . $requestUri;
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <!-- ICONIFY ICONS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iconify/2.0.0/iconify.min.js"
+        integrity="sha512-lYMiwcB608+RcqJmP93CMe7b4i9G9QK1RbixsNu4PzMRJMsqr/bUrkXUuFzCNsRUo3IXNUr5hz98lINURv5CNA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <!-- FONT FAMILY -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -184,6 +189,7 @@ $url = $protocol . $host . $requestUri;
                                 <option value="Served">Served</option>
                                 <option value="Not served">Not served</option>
                                 <option value="Exempted">Exempted</option>
+                                <option value="Not required">Not required</option>
                             </select>
                         </div>
                     </div>
@@ -339,52 +345,7 @@ $url = $protocol . $host . $requestUri;
 
         <!-- CONTACT -->
         <div id="contact" class="py-5">
-            <div class="container-fluid my-5 text-center">
-                <h4 class="gold-grad-anim mb-2">Contact Us</h4>
-                <h6 class="text-white">YOUR CONNECTION TO EXCELLENCE</h6>
-                <div class="divider"></div>
-                <p class="mb-5">
-                    We’d love to hear from you! Whether you have questions, need more information about our services, or
-                    want to discuss a potential project, our team is here to help.
-                </p>
-                <div class="p-4 text-start mb-5">
-                    <h6 class="text-center">GET IN TOUCH</h6>
-                    <div class="semi-divider"></div>
-                    <div
-                        class="d-flex flex-column gap-2 gap-md-5 flex-md-row align-items-center justify-content-center">
-                        <a href="mailto:info@hikalgroup.ae" class="text-white">
-                            <i class="fa-solid fa-envelope gold-grad"></i>
-                            <span class="mx-2">info@hikalgroup.ae</span>
-                        </a>
-                        <a href="tel:+97142722249" class="text-white">
-                            <i class="fa-solid fa-phone gold-grad"></i>
-                            <span class="mx-2">+971 4 272 2249</span>
-                        </a>
-                    </div>
-                </div>
-                <h6 class="text-center">VISIT US</h6>
-                <div class="semi-divider"></div>
-                <div class="row">
-                    <div class="col-12 col-md-4 p-2 px-5 px-md-2">
-                        <div class="contact-card p-4 ">
-                            <p class="gold-grad">UNITED ARAB EMIRATES</p>
-                            <p>API World Tower, 2704, Sheikh Zayed Road, Dubai, UAE</p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 p-2 px-5 px-md-2">
-                        <div class="contact-card p-4">
-                            <p class="gold-grad">EGYPT</p>
-                            <p>Skies Plaza Mall, 51, 90th Street, 5th Settlement, New Cairo, Egypt</p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 p-2 px-5 px-md-2">
-                        <div class="contact-card p-4">
-                            <p class="gold-grad">PAKISTAN</p>
-                            <p>Islamabad, Pakistan</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php include_once('components/contact.php'); ?>
         </div>
 
         <?php include_once('footer.php') ?>
@@ -532,7 +493,7 @@ $url = $protocol . $host . $requestUri;
             const militaryField = document.getElementById('military');
             const contactError = document.getElementById('contactError');
             const emailError = document.getElementById('emailError');
-            var militaryFieldValue = "";
+            // var militaryFieldValue = "";
             // STEP 2 
             const experienceInput = document.getElementById('experience');
             const portfolioField = document.getElementById('portfolio');
@@ -546,25 +507,25 @@ $url = $protocol . $host . $requestUri;
             const positionField = document.getElementById('position');
 
             // GENDER AND MILITARY
-            const militaryDiv = document.getElementById('militaryDiv');
-            genderField.addEventListener('change', function () {
-                if (genderField.value === "Female") {
-                    militaryDiv.style.display = "none";
-                    militaryFieldValue = "Not Required";
-                } else {
-                    militaryDiv.style.display = "block";
-                    militaryFieldValue = "";
-                }
-            });
-            if (genderField.value === "Female") {
-                militaryField.style.display = "none";
-                militaryFieldValue = "Not Required";
-            }
+            // const militaryDiv = document.getElementById('militaryDiv');
+            // genderField.addEventListener('change', function () {
+            //     if (genderField.value === "Female") {
+            //         militaryDiv.style.display = "none";
+            //         militaryFieldValue = "Not Required";
+            //     } else {
+            //         militaryDiv.style.display = "block";
+            //         militaryFieldValue = "";
+            //     }
+            // });
+            // if (genderField.value === "Female") {
+            //     militaryField.style.display = "none";
+            //     militaryFieldValue = "Not Required";
+            // }
 
             // Initialize intl-tel-input
             const phoneNumber = window.intlTelInput(phoneField, {
                 separateDialCode: true,
-                preferredCountries: ["eg", "sa", "qa", "om", "kw", "iq"],
+                // preferredCountries: ["ae", "eg", "sa", "qa", "om", "kw", "iq"],
                 initialCountry: "auto",
                 geoIpLookup: function (callback) {
                     fetch('https://ipinfo.io/json')
@@ -668,7 +629,7 @@ $url = $protocol . $host . $requestUri;
                     dob: dobField.value,
                     gender: genderField.value,
                     language: $('#language').val().join(', '),
-                    military: militaryFieldValue,
+                    military: militaryField.value ?? "",
                     education: educationField.value,
                     profession: professionField.value,
                     experience: experienceInput.value,
@@ -685,7 +646,7 @@ $url = $protocol . $host . $requestUri;
 
                 console.log('Form Data:', formData);
 
-                if (nameField.value && phoneField.value && emailField.value && addressField.value && dobField.value && genderField.value && militaryFieldValue && educationField.value && professionField.value && experienceInput.value && lastSalaryField.value && currencyField.value && expectedSalaryField.value && noticeField.value && positionField.value
+                if (nameField.value && phoneField.value && emailField.value && addressField.value && dobField.value && genderField.value && educationField.value && professionField.value && experienceInput.value && lastSalaryField.value && currencyField.value && expectedSalaryField.value && noticeField.value && positionField.value
                 ) {
                     // SEND FORM DATA IN MAIL USING AJAX
                     $.ajax({
